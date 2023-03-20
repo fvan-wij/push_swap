@@ -6,7 +6,7 @@
 #    By: flip <flip@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 13:03:08 by fvan-wij          #+#    #+#              #
-#    Updated: 2023/03/19 17:16:18 by flip             ###   ########.fr        #
+#    Updated: 2023/03/19 17:43:14 by flip             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ LIBFT		:= ./libft/libft.a
 HEADERS		:= -I ./includes -I /include -I ./libft
 SRCS		:= 	main.c \
 				memory_management.c \
+				sorting_operations.c \
 				utilities.c \
 
 SRCDIR 		:= ./src

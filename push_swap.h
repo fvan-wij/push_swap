@@ -6,7 +6,7 @@
 /*   By: flip <flip@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:11:10 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/03/19 17:06:58 by flip             ###   ########.fr       */
+/*   Updated: 2023/03/20 08:50:07 by flip             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,26 @@ typedef struct s_node
 
 typedef struct s_meta
 {
-	t_node	*stack_a;
-	t_node	*stack_b;
+	t_node	*head_a;
+	t_node	*head_b;
+	t_node	*tail_a;
+	t_node	*tail_b;
 } 		t_meta;
 
 // Utilities
-void	print_stack(t_node *stack);
+void	print_stack(t_node *head, char *stack);
+void	print_reverse_stack(t_node *tail, char *stack);
+
 
 // Memory management
 void	free_double_array(char **array);
 void	free_linked_list(t_node **head);
 
 // Sorting operations
+void	rotate_stack_a(t_node *head, t_node *tail);
+void	rotate_stack_b(t_node *head);
+void    swap_stack_a(t_node *head);
+void    push_b(t_node **head_a, t_node **head_b);
+void    push_a(t_node **head_b, t_node **head_a);
 
 // Sorting algorithms
