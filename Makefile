@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: flip <flip@student.42.fr>                  +#+  +:+       +#+         #
+#    By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 13:03:08 by fvan-wij          #+#    #+#              #
-#    Updated: 2023/03/19 17:43:14 by flip             ###   ########.fr        #
+#    Updated: 2023/03/21 14:40:37 by fvan-wij         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ DEBUG		:= -fsanitize=address
 # **************************************************************************** #
 
 # ifdef DEBUG
-# 		CFLAGS += -g -fsanitize=address
+# 		FLAGS += -g -fsanitize=address
 # endif
 
 all: $(NAME)
@@ -38,7 +38,7 @@ $(NAME): $(OBJS)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)
-	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
+	@$(CC) $(FLAGS) -o $@ -c $< $(HEADERS)
 
 clean:
 	@rm -rf $(OBJDIR) $(NAME)

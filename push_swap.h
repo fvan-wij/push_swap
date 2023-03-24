@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flip <flip@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:11:10 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/03/20 08:50:07 by flip             ###   ########.fr       */
+/*   Updated: 2023/03/24 15:04:06 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../libft/libft.h"
+# include "./libft/libft.h"
 # include <stdlib.h>
 # include <strings.h>
 # include <unistd.h>
@@ -34,8 +34,8 @@ typedef struct s_meta
 {
 	t_node	*head_a;
 	t_node	*head_b;
-	t_node	*tail_a;
-	t_node	*tail_b;
+	int		elements_a;
+	int		elements_b;
 } 		t_meta;
 
 // Utilities
@@ -48,10 +48,10 @@ void	free_double_array(char **array);
 void	free_linked_list(t_node **head);
 
 // Sorting operations
-void	rotate_stack_a(t_node *head, t_node *tail);
+void	rotate_stack_a(t_node *head);
 void	rotate_stack_b(t_node *head);
 void    swap_stack_a(t_node *head);
-void    push_b(t_node **head_a, t_node **head_b);
-void    push_a(t_node **head_b, t_node **head_a);
+void    push_to_a(t_node **head_b, t_node **head_a);
+void    push_to_b(t_node **head_a, t_node **head_b);
 
 // Sorting algorithms
