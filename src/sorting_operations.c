@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_operations.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: flip <flip@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:27:11 by flip              #+#    #+#             */
-/*   Updated: 2023/03/24 16:09:23 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/03/25 14:41:54 by flip             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    rotate_stack_a(t_node *head) // Top should go to bottom!
+void    rotate_stack_a(t_node *head)
 {
 	t_node *current;
 	int		temp;
@@ -29,15 +29,23 @@ void    rotate_stack_a(t_node *head) // Top should go to bottom!
 		current->n = temp;
 }
 
-void    rev_rotate_stack_a(t_node *head, t_node *tail) // Bottom should go to top!
+void    rev_rotate_stack_a(t_node **head) // Previous is not well linked. 
 {
-    int temp;
-
+    t_node  *last;
+    t_node  *second_last;
+    
+    if (*head == NULL || (*head)->next == NULL)
+        return ;
     ft_printf("--> [Rev rotate a]\n");
-    temp = 0;
-    temp = head->n;
-    head->n = tail->n;
-    tail->n = temp;
+    last = *head;
+    while (last->next != NULL)
+    {
+        second_last = last;
+        last = last->next;
+    }
+    second_last->next = NULL;
+    last->next = *head;
+    *head = last;
 }
 
 void    rotate_stack_b(t_node *head)
@@ -86,10 +94,12 @@ void    swap_stack_b(t_node *head)
 void    push_to_a(t_node **head_b, t_node **head_a)
 {
     t_node  *temp;
+
     if (!*head_b)
         return ;
- 	ft_printf("--> [Push to a]\n");
+
     temp = *head_a;
+ 	ft_printf("--> [Push to a]\n");
 	if (!*head_a)
 	{
 		temp = *head_b;
@@ -117,10 +127,7 @@ void    push_to_b(t_node **head_a, t_node **head_b)
     t_node  *temp;
 
     if (!*head_a)
-	{
-		ft_printf("HUH?\n");
         return ;
-	}
     temp = *head_a;
     ft_printf("--> [Push to b]\n");
 	if (!*head_b)

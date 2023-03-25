@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: flip <flip@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:10:31 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/03/24 16:04:21 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/03/25 14:33:18 by flip             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,19 +86,14 @@ int	main(int argc, char **argv)
 	meta = NULL;
 	meta = input_to_stack(meta, argc, argv);
 	print_stack(meta->head_a, "Stack a");
-	print_stack(meta->head_b, "Stack b");
-	push_to_b(&meta->head_a, &meta->head_b);
-	push_to_b(&meta->head_a, &meta->head_b);
-	push_to_b(&meta->head_a, &meta->head_b);
-	push_to_b(&meta->head_a, &meta->head_b);
+	rev_rotate_stack_a(&meta->head_a);
 	print_stack(meta->head_a, "Stack a");
-	print_stack(meta->head_b, "Stack b");
-	push_to_a(&meta->head_b, &meta->head_a);
-	push_to_a(&meta->head_a, &meta->head_b);
-	push_to_a(&meta->head_a, &meta->head_b);
-	push_to_a(&meta->head_a, &meta->head_b);
+	rev_rotate_stack_a(&meta->head_a);
 	print_stack(meta->head_a, "Stack a");
-	print_stack(meta->head_b, "Stack b");
+	rev_rotate_stack_a(&meta->head_a);
+	print_stack(meta->head_a, "Stack a");
+	rev_rotate_stack_a(&meta->head_a);
+	print_reverse_stack(meta->head_a, "Stack a");
 	
 	if (meta)
 		free(meta);

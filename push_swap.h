@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: flip <flip@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:11:10 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/03/24 15:04:06 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/03/25 14:31:25 by flip             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	free_linked_list(t_node **head);
 // Sorting operations
 void	rotate_stack_a(t_node *head);
 void	rotate_stack_b(t_node *head);
+void    rev_rotate_stack_a(t_node **head);
 void    swap_stack_a(t_node *head);
 void    push_to_a(t_node **head_b, t_node **head_a);
 void    push_to_b(t_node **head_a, t_node **head_b);
