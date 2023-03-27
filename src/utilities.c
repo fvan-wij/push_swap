@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   utilities.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: flip <flip@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/19 16:49:10 by flip              #+#    #+#             */
-/*   Updated: 2023/03/20 08:38:46 by flip             ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   utilities.c                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: flip <flip@student.42.fr>                    +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/03/19 16:49:10 by flip          #+#    #+#                 */
+/*   Updated: 2023/03/26 14:00:32 by flip          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,21 @@ void	print_stack(t_node *head, char *stack)
 	ft_printf("\n");
 }
 
-void	print_reverse_stack(t_node *tail, char *stack)
+void	print_reverse_stack(t_node *head, char *stack)
 {
 	t_node	*current;
 	
-	current = tail;
+	current = head;
+	if (!current)
+	{
+		ft_printf("--> Reverse printing %s\n", stack);
+		ft_printf("%s is empty\n\n", stack);
+		return ;
+	}
 	ft_printf("--> Printing reversed %s\n", stack);
-	while (current != NULL)
+	while (current->next != NULL)
+		current = current->next;
+	while(current != NULL)
 	{
 		ft_printf("(Reverse) Number is %d\n", current->n);
 		current = current->previous;

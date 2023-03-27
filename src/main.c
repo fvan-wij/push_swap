@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: flip <flip@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 18:10:31 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/03/25 14:33:18 by flip             ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   main.c                                             :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: flip <flip@student.42.fr>                    +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/03/17 18:10:31 by fvan-wij      #+#    #+#                 */
+/*   Updated: 2023/03/26 14:01:34 by flip          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,15 +85,25 @@ int	main(int argc, char **argv)
 
 	meta = NULL;
 	meta = input_to_stack(meta, argc, argv);
+	push_to_b(&meta->head_a, &meta->head_b);
+	push_to_b(&meta->head_a, &meta->head_b);
+	push_to_b(&meta->head_a, &meta->head_b);
+	push_to_b(&meta->head_a, &meta->head_b);
+	push_to_a(&meta->head_b, &meta->head_a);
+	push_to_a(&meta->head_b, &meta->head_a);
+	push_to_a(&meta->head_b, &meta->head_a);
+	push_to_a(&meta->head_b, &meta->head_a);
+	
+	// rotate_stack_b(meta->head_b);
+	// print_stack(meta->head_b, "Stack b");
+	// rotate_stack_b(meta->head_b);
 	print_stack(meta->head_a, "Stack a");
-	rev_rotate_stack_a(&meta->head_a);
-	print_stack(meta->head_a, "Stack a");
-	rev_rotate_stack_a(&meta->head_a);
-	print_stack(meta->head_a, "Stack a");
-	rev_rotate_stack_a(&meta->head_a);
-	print_stack(meta->head_a, "Stack a");
-	rev_rotate_stack_a(&meta->head_a);
-	print_reverse_stack(meta->head_a, "Stack a");
+	// rotate_stack_b(meta->head_b);
+	print_stack(meta->head_b, "Stack b");
+	// print_reverse_stack(meta->head_a, "Stack a");
+	// print_reverse_stack(meta->head_b, "Stack b");
+	// rev_rotate_stack_a(&meta->head_a);
+	// rev_rotate_stack_a(&meta->head_a);
 	
 	if (meta)
 		free(meta);

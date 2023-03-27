@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   sorting_operations.c                               :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: flip <flip@student.42.fr>                  +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/19 17:27:11 by flip              #+#    #+#             */
-/*   Updated: 2023/03/25 14:41:54 by flip             ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   sorting_operations.c                               :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: flip <flip@student.42.fr>                    +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/03/19 17:27:11 by flip          #+#    #+#                 */
+/*   Updated: 2023/03/26 14:01:03 by flip          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ void    rotate_stack_a(t_node *head)
 {
 	t_node *current;
 	int		temp;
-
+    
+    if (!head)
+        return ;
     ft_printf("--> [Rotate a]\n");
 	current = head;
     temp = head->n;
@@ -29,30 +31,13 @@ void    rotate_stack_a(t_node *head)
 		current->n = temp;
 }
 
-void    rev_rotate_stack_a(t_node **head) // Previous is not well linked. 
-{
-    t_node  *last;
-    t_node  *second_last;
-    
-    if (*head == NULL || (*head)->next == NULL)
-        return ;
-    ft_printf("--> [Rev rotate a]\n");
-    last = *head;
-    while (last->next != NULL)
-    {
-        second_last = last;
-        last = last->next;
-    }
-    second_last->next = NULL;
-    last->next = *head;
-    *head = last;
-}
-
 void    rotate_stack_b(t_node *head)
 {
 	t_node *current;
 	int		temp;
 
+    if (!head)
+        return ;
     ft_printf("--> [Rotate b]\n");
 	current = head;
     temp = head->n;
@@ -63,6 +48,48 @@ void    rotate_stack_b(t_node *head)
 	}
 	if (current->next == NULL)
 		current->n = temp;
+}
+
+void    rev_rotate_stack_a(t_node **head)
+{
+    t_node  *current;
+    int     temp;
+
+    temp = 0;
+    if (!*head || (*head)->next == NULL)
+        return ;
+    current = *head;
+    while (current->next != NULL)
+        current = current->next;
+    temp = current->n;
+    current->previous->next = NULL;
+    current->previous = NULL;
+    current->next = *head;
+    (*head)->previous = current;
+    current->n = temp;
+    *head = current;
+    ft_printf("--> [Rev rotate a]\n");
+}
+
+void    rev_rotate_stack_b(t_node **head)
+{
+    t_node  *current;
+    int     temp;
+
+    temp = 0;
+    if (!*head || (*head)->next == NULL)
+        return ;
+    current = *head;
+    while (current->next != NULL)
+        current = current->next;
+    temp = current->n;
+    current->previous->next = NULL;
+    current->previous = NULL;
+    current->next = *head;
+    (*head)->previous = current;
+    current->n = temp;
+    *head = current;
+    ft_printf("--> [Rev rotate b]\n");
 }
 
 void    swap_stack_a(t_node *head)
@@ -91,63 +118,56 @@ void    swap_stack_b(t_node *head)
     }
 }
 
-void    push_to_a(t_node **head_b, t_node **head_a)
+void    push_to_a(t_node **source, t_node **destination)
 {
     t_node  *temp;
 
-    if (!*head_b)
+    if (!*source)
         return ;
-
-    temp = *head_a;
- 	ft_printf("--> [Push to a]\n");
-	if (!*head_a)
+	else if (!*destination)
 	{
-		temp = *head_b;
-		*head_b = (*head_b)->next;
-		*head_a = temp;
-		(*head_a)->next = NULL;
+		temp = *source;
+		*source = (*source)->next;
+		*destination = temp;
+		(*destination)->next = NULL;
+        ft_printf("--> [Push to a]\n");
 		return ;
 	}
-    *head_a = (*head_a)->next;
-    if (!*head_b)
-    {
-        *head_b = temp;
-        (*head_b)->next = NULL;
-    }
     else
     {
-        temp->next = *head_b;
-        (*head_b)->previous = temp;
-        *head_b = temp;
+        temp = *source;
+        *source = (*source)->next;
+        temp->next = *destination;
+        (*destination)->previous = temp;
+        *destination = temp;
+        (*destination)->previous = NULL;
+        ft_printf("--> [Push to a]\n");
     }
 }
 
-void    push_to_b(t_node **head_a, t_node **head_b)
+void    push_to_b(t_node **source, t_node **destination)
 {
     t_node  *temp;
 
-    if (!*head_a)
+    if (!*source)
         return ;
-    temp = *head_a;
-    ft_printf("--> [Push to b]\n");
-	if (!*head_b)
+	else if (!*destination)
 	{
-		temp = *head_a;
-		*head_a = (*head_a)->next;
-		*head_b = temp;
-		(*head_b)->next = NULL;
+		temp = *source;
+		*source = (*source)->next;
+		*destination = temp;
+		(*destination)->next = NULL;
+        ft_printf("--> [Push to b]\n");
 		return ;
 	}
-    *head_a = (*head_a)->next;
-    if (!*head_b)
-    {
-        *head_b = temp;
-        (*head_b)->next = NULL;
-    }
     else
     {
-        temp->next = *head_b;
-        (*head_b)->previous = temp;
-        *head_b = temp;
+        temp = *source;
+        *source = (*source)->next;
+        temp->next = *destination;
+        (*destination)->previous = temp;
+        *destination = temp;
+        (*destination)->previous = NULL;
+        ft_printf("--> [Push to b]\n");
     }
 }
