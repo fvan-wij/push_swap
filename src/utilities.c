@@ -6,13 +6,13 @@
 /*   By: flip <flip@student.42.fr>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/19 16:49:10 by flip          #+#    #+#                 */
-/*   Updated: 2023/03/26 14:00:32 by flip          ########   odam.nl         */
+/*   Updated: 2023/03/27 20:00:31 by flip          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	print_stack(t_node *head, char *stack)
+void	print_stack(t_meta *meta, t_node *head, char *stack)
 {
 	t_node	*current;
 	int		i;
@@ -31,6 +31,7 @@ void	print_stack(t_node *head, char *stack)
 		current = current->next;
 		i++;
 	}
+	ft_printf("Total elements_a: %d, total elements_b: %d\n", meta->elements_a, meta->elements_b);
 	ft_printf("\n");
 }
 

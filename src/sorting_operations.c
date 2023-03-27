@@ -6,7 +6,7 @@
 /*   By: flip <flip@student.42.fr>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/19 17:27:11 by flip          #+#    #+#                 */
-/*   Updated: 2023/03/26 14:01:03 by flip          ########   odam.nl         */
+/*   Updated: 2023/03/27 20:03:47 by flip          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void    swap_stack_b(t_node *head)
     }
 }
 
-void    push_to_a(t_node **source, t_node **destination)
+void    push_to_a(t_meta *meta, t_node **source, t_node **destination)
 {
     t_node  *temp;
 
@@ -131,6 +131,8 @@ void    push_to_a(t_node **source, t_node **destination)
 		*destination = temp;
 		(*destination)->next = NULL;
         ft_printf("--> [Push to a]\n");
+        meta->elements_a--;
+        meta->elements_b++;
 		return ;
 	}
     else
@@ -141,11 +143,13 @@ void    push_to_a(t_node **source, t_node **destination)
         (*destination)->previous = temp;
         *destination = temp;
         (*destination)->previous = NULL;
+        meta->elements_a--;
+        meta->elements_b++;
         ft_printf("--> [Push to a]\n");
     }
 }
 
-void    push_to_b(t_node **source, t_node **destination)
+void    push_to_b(t_meta *meta, t_node **source, t_node **destination)
 {
     t_node  *temp;
 
@@ -157,6 +161,8 @@ void    push_to_b(t_node **source, t_node **destination)
 		*source = (*source)->next;
 		*destination = temp;
 		(*destination)->next = NULL;
+        meta->elements_b++;
+        meta->elements_a--;
         ft_printf("--> [Push to b]\n");
 		return ;
 	}
@@ -168,6 +174,8 @@ void    push_to_b(t_node **source, t_node **destination)
         (*destination)->previous = temp;
         *destination = temp;
         (*destination)->previous = NULL;
+        meta->elements_b++;
+        meta->elements_a--;
         ft_printf("--> [Push to b]\n");
     }
 }

@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/16 13:03:08 by fvan-wij          #+#    #+#              #
-#    Updated: 2023/03/21 14:40:37 by fvan-wij         ###   ########.fr        #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: fvan-wij <fvan-wij@student.codam.nl>         +#+                      #
+#                                                    +#+                       #
+#    Created: 2022/12/16 13:03:08 by fvan-wij      #+#    #+#                  #
+#    Updated: 2023/03/27 20:32:26 by flip          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ HEADERS		:= -I ./includes -I /include -I ./libft
 SRCS		:= 	main.c \
 				memory_management.c \
 				sorting_operations.c \
+				operations_combinations.c \
 				utilities.c \
 
 SRCDIR 		:= ./src

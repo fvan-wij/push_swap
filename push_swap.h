@@ -6,7 +6,7 @@
 /*   By: flip <flip@student.42.fr>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/17 18:11:10 by fvan-wij      #+#    #+#                 */
-/*   Updated: 2023/03/26 13:15:26 by flip          ########   odam.nl         */
+/*   Updated: 2023/03/27 20:31:59 by flip          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_meta
 } 		t_meta;
 
 // Utilities
-void	print_stack(t_node *head, char *stack);
+void	print_stack(t_meta *meta, t_node *head, char *stack);
 void	print_reverse_stack(t_node *head, char *stack);
 
 
@@ -53,8 +53,11 @@ void	rotate_stack_b(t_node *head);
 void    rev_rotate_stack_a(t_node **head);
 void    rev_rotate_stack_b(t_node **head);
 void    swap_stack_a(t_node *head);
-void    push_to_a(t_node **source, t_node **destination);
-void    push_to_b(t_node **source, t_node **destination);
-void    push(t_node **source, t_node **destination);
+void    push_to_a(t_meta *meta, t_node **source, t_node **destination);
+void    push_to_b(t_meta *meta, t_node **source, t_node **destination);
+
+// Sorting combinations
+void    push_target_to_b(t_meta *meta, int target);
+
 
 // Sorting algorithms
