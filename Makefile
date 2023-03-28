@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: fvan-wij <fvan-wij@student.codam.nl>         +#+                      #
-#                                                    +#+                       #
-#    Created: 2022/12/16 13:03:08 by fvan-wij      #+#    #+#                  #
-#    Updated: 2023/03/27 20:32:26 by flip          ########   odam.nl          #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/16 13:03:08 by fvan-wij          #+#    #+#              #
+#    Updated: 2023/03/28 13:12:40 by fvan-wij         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS		:= 	main.c \
 				memory_management.c \
 				sorting_operations.c \
 				operations_combinations.c \
+				rudimentary_sort.c \
 				utilities.c \
 
 SRCDIR 		:= ./src

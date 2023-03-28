@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: flip <flip@student.42.fr>                    +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/03/17 18:11:10 by fvan-wij      #+#    #+#                 */
-/*   Updated: 2023/03/27 20:31:59 by flip          ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/17 18:11:10 by fvan-wij          #+#    #+#             */
+/*   Updated: 2023/03/28 13:24:02 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_meta
 	t_node	*head_b;
 	int		elements_a;
 	int		elements_b;
+	int		operation_count;
 } 		t_meta;
 
 // Utilities
@@ -57,7 +58,9 @@ void    push_to_a(t_meta *meta, t_node **source, t_node **destination);
 void    push_to_b(t_meta *meta, t_node **source, t_node **destination);
 
 // Sorting combinations
+void	push_target_to_a(t_meta *meta, int target);
 void    push_target_to_b(t_meta *meta, int target);
 
-
 // Sorting algorithms
+void	rudimentary_sort(t_meta *meta);
+
