@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: flip <flip@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:10:31 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/03/28 15:34:26 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/03/29 09:38:06 by flip             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,8 @@ int	main(int argc, char **argv)
 	// print_stack(meta, meta->head_a, "Stack a");
 	// print_stack(meta, meta->head_b, "Stack b");
 	
-	rudimentary_sort(meta);
+	// rudimentary_sort(meta);
+	sort_index(meta);
 	if (meta)
 		free(meta);
 	return (EXIT_SUCCESS);

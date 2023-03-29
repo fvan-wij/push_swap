@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+         #
+#    By: flip <flip@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 13:03:08 by fvan-wij          #+#    #+#              #
-#    Updated: 2023/03/28 13:12:40 by fvan-wij         ###   ########.fr        #
+#    Updated: 2023/03/29 09:37:32 by flip             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS		:= 	main.c \
 				sorting_operations.c \
 				operations_combinations.c \
 				rudimentary_sort.c \
+				radix_sort.c \
 				utilities.c \
 
 SRCDIR 		:= ./src

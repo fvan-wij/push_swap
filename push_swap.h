@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: flip <flip@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:11:10 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/03/28 13:24:02 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/03/29 09:37:21 by flip             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 typedef struct s_node
 {
 	int				n;
+	int				index;
 	struct s_node	*previous;
 	struct s_node	*next;
 }		t_node;
@@ -63,4 +64,4 @@ void    push_target_to_b(t_meta *meta, int target);
 
 // Sorting algorithms
 void	rudimentary_sort(t_meta *meta);
-
+void    sort_index(t_meta *meta);

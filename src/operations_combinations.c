@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations_combinations.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: flip <flip@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 20:12:46 by flip              #+#    #+#             */
-/*   Updated: 2023/03/28 12:57:41 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/03/29 09:23:58 by flip             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	push_target_to_a(t_meta *meta, int	target)
 	i = 0;
 	treshold = meta->elements_b / 2;
 	current = meta->head_b;
-	while (current != '\0')
+	while (current != NULL)
 	{
 		if (current->n == target && i >= treshold)
 			return (rev_rotate_loop_and_push_to_a(target, meta));
@@ -73,7 +73,7 @@ void    push_target_to_b(t_meta *meta, int target)
     i = 0;
     treshold = meta->elements_a / 2;
     current = meta->head_a;
-    while (current != '\0')
+    while (current != NULL)
     {
         if (current->n == target && i >= treshold)
             return (rev_rotate_loop_and_push_to_b(target, meta));
