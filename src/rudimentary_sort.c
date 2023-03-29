@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rudimentary_sort.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flip <flip@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:04:15 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/03/29 09:24:29 by flip             ###   ########.fr       */
+/*   Updated: 2023/03/29 15:48:02 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	find_smallest_number(t_meta *meta)
 void	rudimentary_sort(t_meta *meta)
 {
 	int		target;
-	
+
 	while (meta->head_a)
 	{
 		target = find_smallest_number(meta);

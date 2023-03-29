@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flip <flip@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:11:10 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/03/29 09:37:21 by flip             ###   ########.fr       */
+/*   Updated: 2023/03/29 10:40:01 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct s_meta
 // Utilities
 void	print_stack(t_meta *meta, t_node *head, char *stack);
 void	print_reverse_stack(t_node *head, char *stack);
-
+void	print_index(t_meta *meta);
 
 // Memory management
 void	free_double_array(char **array);

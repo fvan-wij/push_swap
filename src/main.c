@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flip <flip@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:10:31 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/03/29 09:38:06 by flip             ###   ########.fr       */
+/*   Updated: 2023/03/29 17:50:46 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,34 @@ void	add_array_to_stack(char **input_array, t_meta *meta)
 	}
 }
 
+// int	check_duplicates(char **input_array, t_meta *meta) // This function should check for duplicates
+// {
+// 	int		i;
+// 	int		j;
+
+// 	i = 0;
+// 	j = 0;
+// 	while (input_array[i])
+// 	{
+// 		while (input_array[j])
+// 		{
+// 			ft_printf("i: %d, j: %d\n", i, j);
+// 			if (ft_isalpha(input_array[i][j]))
+// 			{
+// 				ft_printf("Error, input contains one or more characters.\n");
+// 				free_double_array(input_array);
+// 				free(meta);
+// 				exit(1);
+// 			}
+// 			if (i != j && ft_strncmp(input_array[i], input_array[j], 11) == 0)
+// 				ft_printf("Error, input contains duplicates.\n");
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// 	return (0);
+// }
+
 t_meta	*input_to_stack(t_meta *meta, int argc, char **argv)
 {
 	char	**input_array;
@@ -75,6 +103,7 @@ t_meta	*input_to_stack(t_meta *meta, int argc, char **argv)
 	while (i != argc)
 	{
 		input_array = ft_split(argv[i], ' ');
+		// check_duplicates(input_array, meta); // To do: Check for duplicates
 		add_array_to_stack(input_array, meta);
 		free_double_array(input_array);
 		i++;
@@ -93,11 +122,12 @@ int	main(int argc, char **argv)
 	// push_to_a(meta, &meta->head_b, &meta->head_a);
 	// rotate_stack_b(meta->head_b);
 	// rev_rotate_stack_a(&meta->head_a);
-	// print_stack(meta, meta->head_a, "Stack a");
+	print_stack(meta, meta->head_a, "Stack a");
 	// print_stack(meta, meta->head_b, "Stack b");
 	
 	// rudimentary_sort(meta);
-	sort_index(meta);
+	// sort_index(meta);
+	// print_index(meta);
 	if (meta)
 		free(meta);
 	return (EXIT_SUCCESS);

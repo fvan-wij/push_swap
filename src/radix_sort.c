@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flip <flip@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 09:25:34 by flip              #+#    #+#             */
-/*   Updated: 2023/03/29 09:41:26 by flip             ###   ########.fr       */
+/*   Updated: 2023/03/29 11:04:13 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 // Write a function that indexes the stack in ascending order where index[0] is the lowest number
-
 // Check first number, if bigger than 2nd number, i++, if bigger than 3rd number i++, etc.
 
 void    sort_index(t_meta *meta)
@@ -25,12 +24,10 @@ void    sort_index(t_meta *meta)
     i = 0;
     current = meta->head_a;
     runner = meta->head_a;
-    while (current->next != NULL)
+    while (current != NULL)
     {
-        while (runner->next != NULL)
+        while (runner != NULL)
         {
-            if (runner->index)
-                runner = runner->next;
             if (current->n > runner->n)
                 i++;
             runner = runner->next;
