@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
+/*   By: flip <flip@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:10:31 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/03/29 17:50:46 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/03/30 12:11:43 by flip             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,33 +59,57 @@ void	add_array_to_stack(char **input_array, t_meta *meta)
 	}
 }
 
-// int	check_duplicates(char **input_array, t_meta *meta) // This function should check for duplicates
-// {
-// 	int		i;
-// 	int		j;
+int	check_alhpabetical_input(char **input_array, t_meta *meta)
+{
+	int		i;
+	int		j;
 
-// 	i = 0;
-// 	j = 0;
-// 	while (input_array[i])
-// 	{
-// 		while (input_array[j])
-// 		{
-// 			ft_printf("i: %d, j: %d\n", i, j);
-// 			if (ft_isalpha(input_array[i][j]))
-// 			{
-// 				ft_printf("Error, input contains one or more characters.\n");
-// 				free_double_array(input_array);
-// 				free(meta);
-// 				exit(1);
-// 			}
-// 			if (i != j && ft_strncmp(input_array[i], input_array[j], 11) == 0)
-// 				ft_printf("Error, input contains duplicates.\n");
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// 	return (0);
-// }
+	i = 0;
+	j = 0;
+	while (input_array[i])
+	{
+		j = 0;
+		while (input_array[i][j])
+		{
+			if (ft_isalpha(input_array[i][j]))
+			{
+				ft_printf("Error, input contains one or more characters.\n");
+				free_double_array(input_array);
+				free(meta);
+				exit(1);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+int	check_duplicates(char **argv)
+{
+	int	i;
+	int	j;
+
+	
+	i = 1;
+	j = 2;
+	while (argv[i])
+	{
+		while (argv[j])
+		{
+			if (i != j && ft_strncmp(argv[i], argv[j], 11) == 0)
+			{
+				ft_printf("argv[%d]: %s, argv[%d]: %s\n", i, argv[i], j, argv[j]);
+				ft_printf("Error, input contains duplicates.\n");
+				return (1);
+			}
+			j++;
+		}
+		j = 1;
+		i++;
+	}
+	return (0);
+}
 
 t_meta	*input_to_stack(t_meta *meta, int argc, char **argv)
 {
@@ -103,7 +127,7 @@ t_meta	*input_to_stack(t_meta *meta, int argc, char **argv)
 	while (i != argc)
 	{
 		input_array = ft_split(argv[i], ' ');
-		// check_duplicates(input_array, meta); // To do: Check for duplicates
+		check_alhpabetical_input(input_array, meta);
 		add_array_to_stack(input_array, meta);
 		free_double_array(input_array);
 		i++;
@@ -116,6 +140,8 @@ int	main(int argc, char **argv)
 	t_meta	*meta;
 
 	meta = NULL;
+	if (check_duplicates(argv))
+		return (EXIT_FAILURE);
 	meta = input_to_stack(meta, argc, argv);
 	
 	// push_to_b(meta, &meta->head_a, &meta->head_b);
