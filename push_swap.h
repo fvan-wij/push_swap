@@ -6,12 +6,13 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:11:10 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/03/29 10:40:01 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/03/30 18:29:08 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "./libft/libft.h"
 # include <stdlib.h>
+# include <stdio.h>
 # include <strings.h>
 # include <unistd.h>
 # include <stdarg.h>
@@ -40,10 +41,13 @@ typedef struct s_meta
 	int		operation_count;
 } 		t_meta;
 
+// Input validation
+int		input_is_invalid(char **argv);
+int		is_sorted(t_node *head);
+
 // Utilities
 void	print_stack(t_meta *meta, t_node *head, char *stack);
 void	print_reverse_stack(t_node *head, char *stack);
-void	print_index(t_meta *meta);
 
 // Memory management
 void	free_double_array(char **array);
@@ -65,3 +69,7 @@ void    push_target_to_b(t_meta *meta, int target);
 // Sorting algorithms
 void	rudimentary_sort(t_meta *meta);
 void    sort_index(t_meta *meta);
+
+// Radix sort
+int		find_highest_number(int	elements, t_node *head);
+void	radix_sort(t_meta *meta);

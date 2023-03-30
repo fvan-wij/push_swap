@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flip <flip@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:10:31 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/03/30 12:11:43 by flip             ###   ########.fr       */
+/*   Updated: 2023/03/30 18:31:37 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void f(void)
+{
+	system("Leaks push_swap");
+}
 
 int	append_node(t_node **stack, int n)
 {
@@ -59,58 +64,6 @@ void	add_array_to_stack(char **input_array, t_meta *meta)
 	}
 }
 
-int	check_alhpabetical_input(char **input_array, t_meta *meta)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	while (input_array[i])
-	{
-		j = 0;
-		while (input_array[i][j])
-		{
-			if (ft_isalpha(input_array[i][j]))
-			{
-				ft_printf("Error, input contains one or more characters.\n");
-				free_double_array(input_array);
-				free(meta);
-				exit(1);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
-int	check_duplicates(char **argv)
-{
-	int	i;
-	int	j;
-
-	
-	i = 1;
-	j = 2;
-	while (argv[i])
-	{
-		while (argv[j])
-		{
-			if (i != j && ft_strncmp(argv[i], argv[j], 11) == 0)
-			{
-				ft_printf("argv[%d]: %s, argv[%d]: %s\n", i, argv[i], j, argv[j]);
-				ft_printf("Error, input contains duplicates.\n");
-				return (1);
-			}
-			j++;
-		}
-		j = 1;
-		i++;
-	}
-	return (0);
-}
-
 t_meta	*input_to_stack(t_meta *meta, int argc, char **argv)
 {
 	char	**input_array;
@@ -127,7 +80,6 @@ t_meta	*input_to_stack(t_meta *meta, int argc, char **argv)
 	while (i != argc)
 	{
 		input_array = ft_split(argv[i], ' ');
-		check_alhpabetical_input(input_array, meta);
 		add_array_to_stack(input_array, meta);
 		free_double_array(input_array);
 		i++;
@@ -137,23 +89,21 @@ t_meta	*input_to_stack(t_meta *meta, int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
+	// atexit(f);
 	t_meta	*meta;
 
 	meta = NULL;
-	if (check_duplicates(argv))
+	if (input_is_invalid(argv))
 		return (EXIT_FAILURE);
 	meta = input_to_stack(meta, argc, argv);
-	
-	// push_to_b(meta, &meta->head_a, &meta->head_b);
-	// push_to_a(meta, &meta->head_b, &meta->head_a);
-	// rotate_stack_b(meta->head_b);
-	// rev_rotate_stack_a(&meta->head_a);
-	print_stack(meta, meta->head_a, "Stack a");
-	// print_stack(meta, meta->head_b, "Stack b");
-	
-	// rudimentary_sort(meta);
-	// sort_index(meta);
-	// print_index(meta);
+	if (is_sorted(meta->head_a))
+	{
+		ft_printf("Stack A is already sorted!\n");
+		free_linked_list(&meta->head_a);
+		free(meta);
+		return (EXIT_SUCCESS);
+	}
+	radix_sort(meta);
 	if (meta)
 		free(meta);
 	return (EXIT_SUCCESS);

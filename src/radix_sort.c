@@ -6,7 +6,7 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 09:25:34 by flip              #+#    #+#             */
-/*   Updated: 2023/03/29 11:04:13 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/03/30 18:56:15 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,50 @@ void    sort_index(t_meta *meta)
         runner = meta->head_a;
         i = 0;
     }
+}
+
+int	find_highest_number(int	elements, t_node *head)
+{
+	t_node	*current;
+
+	current = head;
+	while (current != NULL)
+	{
+		if (current->index == (elements - 1))
+			return (current->n);
+		current = current->next;
+	}
+	return (0);
+}
+
+int	ft_bitlen(int n)
+{
+	int	i;
+
+	i = 0;
+	while (n != 0)
+	{
+		n = n>>1;
+		i++;
+	}
+	return (i);
+}
+
+void	radix_sort(t_meta *meta)
+{
+	int		highest_n;
+	int		bitlen;
+	
+	sort_index(meta);
+	highest_n = find_highest_number(meta->elements_a, meta->head_a);
+	bitlen = ft_bitlen(highest_n);
+
+	int i = 100;
+	int	t = 0;
+	while (i >= 0)
+	{
+		t = i;
+		ft_printf("Before: %d, after: %d\n", i, t>>2);
+		i--;
+	}
 }

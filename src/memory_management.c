@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   memory_management.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flip <flip@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:48:01 by flip              #+#    #+#             */
-/*   Updated: 2023/03/19 16:48:29 by flip             ###   ########.fr       */
+/*   Updated: 2023/03/30 13:49:33 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,12 @@ void	free_linked_list(t_node **head)
 	current = NULL;
 	previous = NULL;
 	current = *head;
-	while (current)
+	while (current != NULL)
 	{
 		previous = current;
 		current = current->next;
 		free(previous);
 	}
-	free(head);
+	// if (head)
+	// 	free(head);
 }
