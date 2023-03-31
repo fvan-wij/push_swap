@@ -6,7 +6,7 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:27:11 by flip              #+#    #+#             */
-/*   Updated: 2023/03/28 13:34:57 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/03/31 16:58:00 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,26 @@
 void    rotate_stack_a(t_node *head)
 {
 	t_node *current;
-	int		temp;
-    
+	int		temp_n;
+    int		temp_index;
     if (!head)
         return ;
     ft_printf("ra\n");
 	current = head;
-    temp = head->n;
+    temp_n = head->n;
+	temp_index = head->index;
+	
 	while (current->next != NULL)
 	{
 		current->n = current->next->n;
+		current->index = current->next->index;
 		current = current->next;
 	}
 	if (current->next == NULL)
-		current->n = temp;
+	{
+		current->n = temp_n;
+		current->index = temp_index;
+	}
 }
 
 void    rotate_stack_b(t_node *head)

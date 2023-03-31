@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flip <flip@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 09:25:34 by flip              #+#    #+#             */
-/*   Updated: 2023/03/30 20:36:09 by flip             ###   ########.fr       */
+/*   Updated: 2023/03/31 18:13:23 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void    sort_index(t_meta *meta)
             runner = runner->next;
         }
         current->index = i;
-        ft_printf("current->n: %d, is now index: %d\n", current->n, current->index);
+        // ft_printf("current->n: %d, is now index: %d\n", current->n, current->index);
         current = current->next;
         runner = meta->head_a;
         i = 0;
@@ -48,7 +48,7 @@ int	find_highest_number(int	elements, t_node *head)
 	while (current != NULL)
 	{
 		if (current->index == (elements - 1))
-			return (current->n);
+			return (current->index);
 		current = current->next;
 	}
 	return (0);
@@ -76,6 +76,8 @@ size_t	ft_putbit(size_t n)
 
 	i = 0;
 	count = 0;
+	if (n == 0)
+		write(1, "0", 1);
 	while (n != 0)
 	{
 		remainder = n % 2;
@@ -91,37 +93,35 @@ size_t	ft_putbit(size_t n)
 		count += write(1, &bits[i - 1], 1);
 		i--;
 	}
+	write(1, "\n", 1);
 	return (count);
 }
 
 void	radix_sort(t_meta *meta)
 {
-	t_node	*current;
-	int		temp;
 	int		i;
-	int		highest_n;
-	int		bitlen;
-	
-	sort_index(meta);
-	highest_n = find_highest_number(meta->elements_a, meta->head_a);
-	bitlen = ft_bitlen(highest_n);
-	// ft_printf("%d\n", bitlen);
-	// 000
-	//   |
-	//   Scan last bit
-	//   	if n&1 == 1, pb
-	// 		else
-	// 		ra
-	
+	int 	j;
+	int		temp;
+	int		stack_size;
 
 	i = 0;
 	temp = 0;
-	current = meta->head_a;
-	while (current->next != NULL)
+	stack_size = meta->elements_a;
+	sort_index(meta);
+	while (!is_sorted(meta->head_a))
 	{
-		current->index = temp;
-		ft_putbit(temp);
-		current = current->next;
+		j = 0;
+		while (j < stack_size)
+		{
+			temp = meta->head_a->index;
+			if (((temp>>i)&1) == 1)
+				rotate_stack_a(meta->head_a);
+			else
+				push_to_b(meta, &meta->head_a, &meta->head_b);
+			j++;
+		}
+		while (meta->head_b)
+			push_to_a(meta, &meta->head_b, &meta->head_a);
 		i++;
 	}
 }

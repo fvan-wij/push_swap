@@ -6,12 +6,12 @@
 #    By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 13:03:08 by fvan-wij          #+#    #+#              #
-#    Updated: 2023/03/30 13:18:30 by fvan-wij         ###   ########.fr        #
+#    Updated: 2023/03/31 16:41:15 by fvan-wij         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= push_swap
-FLAGS		:= -Wall -Wextra # -Werror
+FLAGS		:= -g -Wall -Wextra # -Werror
 LIBFT		:= ./libft/libft.a
 HEADERS		:= -I ./includes -I /include -I ./libft
 SRCS		:= 	main.c \

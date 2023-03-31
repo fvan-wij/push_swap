@@ -6,7 +6,7 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:17:31 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/03/30 13:36:02 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/03/31 16:30:01 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	input_is_invalid(char **argv)
 int	is_sorted(t_node *head)
 {
 	t_node	*current;
-	
+
 	current = head;
 	while (current->next != NULL)
 	{
