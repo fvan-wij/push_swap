@@ -6,7 +6,7 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:10:31 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/03/31 18:20:21 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/04 19:58:24 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,11 @@ t_meta	*input_to_stack(t_meta *meta, int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	atexit(f);
+	// atexit(f);
 	t_meta	*meta;
 
 	meta = NULL;
-	if (input_is_invalid(argv))
+	if (input_is_invalid(argv) || argc <= 2)
 		return (EXIT_FAILURE);
 	meta = input_to_stack(meta, argc, argv);
 	if (is_sorted(meta->head_a))
@@ -103,7 +103,12 @@ int	main(int argc, char **argv)
 		free(meta);
 		return (EXIT_SUCCESS);
 	}
-	radix_sort(meta);
+	sort_index(meta);
+	if (meta->elements_a <= 5)
+		sort_small_stack(meta);
+	else
+		radix_sort(meta);
+	print_stack(meta, meta->head_a, "stack A");
 	if (meta)
 		free(meta);
 	if (meta->head_a)

@@ -6,7 +6,7 @@
 #    By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 13:03:08 by fvan-wij          #+#    #+#              #
-#    Updated: 2023/03/31 16:41:15 by fvan-wij         ###   ########.fr        #
+#    Updated: 2023/04/04 13:18:28 by fvan-wij         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS		:= 	main.c \
 				sorting_operations.c \
 				operations_combinations.c \
 				rudimentary_sort.c \
+				sort_small_stack.c \
 				validate_input.c \
 				radix_sort.c \
 				utilities.c \

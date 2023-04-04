@@ -6,7 +6,7 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:27:11 by flip              #+#    #+#             */
-/*   Updated: 2023/03/31 16:58:00 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:44:56 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,8 @@ void    swap_stack_a(t_node *head)
 {
     int temp;
 
-    if (head->next->n && head->n)
+	temp = 0;
+    if (head && head->next)
     {
         temp = head->n;
         head->n = head->next->n;

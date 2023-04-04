@@ -6,14 +6,11 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 09:25:34 by flip              #+#    #+#             */
-/*   Updated: 2023/03/31 18:13:23 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/04 14:01:22 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-// Write a function that indexes the stack in ascending order where index[0] is the lowest number
-// Check first number, if bigger than 2nd number, i++, if bigger than 3rd number i++, etc.
 
 void    sort_index(t_meta *meta)
 {
@@ -40,7 +37,7 @@ void    sort_index(t_meta *meta)
     }
 }
 
-int	find_highest_number(int	elements, t_node *head)
+int	find_highest_index(int	elements, t_node *head)
 {
 	t_node	*current;
 

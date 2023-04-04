@@ -6,7 +6,7 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:17:31 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/03/31 16:30:01 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/04 20:03:22 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,12 @@ int	check_alhpabetical_input(char **argv, int i, int k)
 	{
 		if (ft_isalpha(argv[i][k]))
 		{
-			ft_printf("Error, input contains one or more characters.\n");
+			ft_printf("Error, input contains one or more charachters.\n");
+			return (1);
+		}
+		if (argv[i][0] == '-' && !ft_isdigit(argv[i][1]))
+		{
+			ft_printf("Error, input contains '-' without being followed by an integer.");
 			return (1);
 		}
 		k++;

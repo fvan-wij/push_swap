@@ -6,7 +6,7 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:11:10 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/03/30 18:29:08 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/04 17:52:18 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int		is_sorted(t_node *head);
 // Utilities
 void	print_stack(t_meta *meta, t_node *head, char *stack);
 void	print_reverse_stack(t_node *head, char *stack);
+int		find_highest_index(int elements, t_node *head);
 
 // Memory management
 void	free_double_array(char **array);
@@ -65,11 +66,15 @@ void    push_to_b(t_meta *meta, t_node **source, t_node **destination);
 // Sorting combinations
 void	push_target_to_a(t_meta *meta, int target);
 void    push_target_to_b(t_meta *meta, int target);
+void	push_index_to_a(t_meta *meta, int target);
+void    push_index_to_b(t_meta *meta, int target);
 
 // Sorting algorithms
 void	rudimentary_sort(t_meta *meta);
 void    sort_index(t_meta *meta);
-
-// Radix sort
-int		find_highest_number(int	elements, t_node *head);
 void	radix_sort(t_meta *meta);
+void	sort_small_stack(t_meta *meta);
+
+// Sort small stacks
+void	sort_stack_of_three(t_meta *meta);
+void	sort_stack_of_four_or_five(t_meta *meta);
