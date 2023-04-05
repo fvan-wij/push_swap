@@ -6,7 +6,7 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:27:11 by flip              #+#    #+#             */
-/*   Updated: 2023/04/04 18:44:56 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/05 15:21:32 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,9 +138,6 @@ void    push_to_a(t_meta *meta, t_node **source, t_node **destination)
 		*destination = temp;
 		(*destination)->next = NULL;
         ft_printf("pa\n");
-        meta->elements_a++;
-        meta->elements_b--;
-		return ;
 	}
     else
     {
@@ -150,10 +147,11 @@ void    push_to_a(t_meta *meta, t_node **source, t_node **destination)
         (*destination)->previous = temp;
         *destination = temp;
         (*destination)->previous = NULL;
-        meta->elements_a++;
-        meta->elements_b--;
         ft_printf("pa\n");
     }
+	meta->elements_a++;
+    meta->elements_b--;
+	return ;
 }
 
 void    push_to_b(t_meta *meta, t_node **source, t_node **destination)
@@ -168,10 +166,7 @@ void    push_to_b(t_meta *meta, t_node **source, t_node **destination)
 		*source = (*source)->next;
 		*destination = temp;
 		(*destination)->next = NULL;
-        meta->elements_b++;
-        meta->elements_a--;
         ft_printf("pb\n");
-		return ;
 	}
     else
     {
@@ -181,8 +176,9 @@ void    push_to_b(t_meta *meta, t_node **source, t_node **destination)
         (*destination)->previous = temp;
         *destination = temp;
         (*destination)->previous = NULL;
-        meta->elements_b++;
-        meta->elements_a--;
         ft_printf("pb\n");
     }
+	meta->elements_b++;
+    meta->elements_a--;
+	return ;
 }

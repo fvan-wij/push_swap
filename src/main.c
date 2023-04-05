@@ -6,7 +6,7 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:10:31 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/04/04 19:58:24 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/05 15:45:53 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,21 +44,15 @@ int	append_node(t_node **stack, int n)
 	}
 }
 
-void	add_array_to_stack(char **input_array, t_meta *meta)
+void	add_array_to_stack(t_meta *meta)
 {
 	int	i;
 
 	i = 0;
-	while (input_array[i])
+	while (meta->input_array[i])
 	{
-		if (!append_node(&meta->head_a, ft_atoi(input_array[i])))
-		{
-			free_double_array(input_array);
-			free_linked_list(&meta->head_a);
-			free(meta);
-			ft_printf("Allocation failed\n");
-			exit(EXIT_FAILURE);
-		}
+		if (!append_node(&meta->head_a, ft_atoi_overflow(meta, meta->input_array[i])))
+			exit_with_error_code(meta, ALLOCATION_FAILURE);
 		meta->elements_a++;
 		i++;
 	}
@@ -66,12 +60,11 @@ void	add_array_to_stack(char **input_array, t_meta *meta)
 
 t_meta	*input_to_stack(t_meta *meta, int argc, char **argv)
 {
-	char	**input_array;
 	int		i;
 
 	meta = malloc(sizeof(t_meta));
 	if (!meta)
-		exit(EXIT_FAILURE);
+		exit (EXIT_FAILURE);
 	meta->head_a = NULL;
 	meta->head_b = NULL;
 	meta->elements_a = 0;
@@ -79,9 +72,11 @@ t_meta	*input_to_stack(t_meta *meta, int argc, char **argv)
 	i = 1;
 	while (i != argc)
 	{
-		input_array = ft_split(argv[i], ' ');
-		add_array_to_stack(input_array, meta);
-		free_double_array(input_array);
+		meta->input_array = ft_split(argv[i], ' ');
+		if (!meta->input_array)
+			exit_with_error_code(meta, SPLIT_FAILURE);
+		add_array_to_stack(meta);
+		free_double_array(meta->input_array);
 		i++;
 	}
 	return (meta);
@@ -94,24 +89,14 @@ int	main(int argc, char **argv)
 
 	meta = NULL;
 	if (input_is_invalid(argv) || argc <= 2)
-		return (EXIT_FAILURE);
+		exit_with_error_code(meta, INVALID_INPUT);
 	meta = input_to_stack(meta, argc, argv);
 	if (is_sorted(meta->head_a))
-	{
-		ft_printf("Stack A is already sorted!\n");
-		free_linked_list(&meta->head_a);
-		free(meta);
-		return (EXIT_SUCCESS);
-	}
-	sort_index(meta);
+		exit_with_success(meta, SORTED);
 	if (meta->elements_a <= 5)
 		sort_small_stack(meta);
 	else
 		radix_sort(meta);
-	print_stack(meta, meta->head_a, "stack A");
-	if (meta)
-		free(meta);
-	if (meta->head_a)
-		free_linked_list(&meta->head_a);
-	return (EXIT_SUCCESS);
+	// print_stack(meta, meta->head_a, "stack A");
+	return (exit_with_success(meta, SUCCESS), EXIT_SUCCESS);
 }
