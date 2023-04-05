@@ -6,16 +6,16 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:10:31 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/04/05 15:45:53 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/05 18:35:26 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void f(void)
-{
-	system("Leaks push_swap");
-}
+// void f(void)
+// {
+// 	system("Leaks push_swap");
+// }
 
 int	append_node(t_node **stack, int n)
 {

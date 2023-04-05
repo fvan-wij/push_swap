@@ -6,7 +6,7 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:17:31 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/04/05 15:45:21 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/05 17:10:36 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	is_sorted(t_node *head)
 	return (1);
 }
 
-void	exit_with_error_code(t_meta *meta, int error_code)
+void	exit_with_error_code(t_meta *meta, t_error error_code)
 {
 	if (error_code == INVALID_INPUT)
 	{
@@ -82,7 +82,8 @@ void	exit_with_error_code(t_meta *meta, int error_code)
 	else if (error_code == ALLOCATION_FAILURE)
 	{
 		free_double_array(meta->input_array);
-		free_linked_list(&meta->head_a);	
+		if (meta->head_a)
+			free_linked_list(&meta->head_a);
 		free(meta);
 		ft_putstr_fd("Error\n", STDERR_FILENO);
 		exit (EXIT_FAILURE);
@@ -96,7 +97,7 @@ void	exit_with_error_code(t_meta *meta, int error_code)
 	}
 }
 
-void	exit_with_success(t_meta *meta, int error_code)
+void	exit_with_success(t_meta *meta, t_error error_code)
 {
 	if (error_code == SUCCESS)
 	{

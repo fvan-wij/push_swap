@@ -6,7 +6,7 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:11:10 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/04/05 15:45:01 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/05 17:09:01 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 
-# define SUCCESS 0
-# define INVALID_INPUT 1
-# define ALLOCATION_FAILURE 2
-# define SPLIT_FAILURE 3
-# define SORTED 4
-
-// Linked List
+typedef enum {
+    SUCCESS,
+	INVALID_INPUT,
+	ALLOCATION_FAILURE,
+	SPLIT_FAILURE,
+	SORTED
+}	t_error;
 
 typedef struct s_node
 {
@@ -61,8 +61,8 @@ int		ft_atoi_overflow(t_meta *meta, const char *nptr);
 // Memory management
 void	free_double_array(char **array);
 void	free_linked_list(t_node **head);
-void	exit_with_error_code(t_meta *meta, int error_code);
-void	exit_with_success(t_meta *meta, int error_code);
+void	exit_with_error_code(t_meta *meta, t_error error_code);
+void	exit_with_success(t_meta *meta, t_error error_code);
 
 // Sorting operations
 void	rotate_stack_a(t_node *head);
