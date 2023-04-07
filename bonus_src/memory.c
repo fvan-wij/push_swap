@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memory_management.c                                :+:      :+:    :+:   */
+/*   memory.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/19 16:48:01 by flip              #+#    #+#             */
-/*   Updated: 2023/04/07 17:51:28 by fvan-wij         ###   ########.fr       */
+/*   Created: 2023/04/07 18:09:07 by fvan-wij          #+#    #+#             */
+/*   Updated: 2023/04/07 18:09:45 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "checker.h"
 
 void	free_double_array(char **array)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (array[i])
@@ -66,18 +66,19 @@ void	exit_with_error_code(t_meta *meta, t_error error_code)
 	}
 }
 
-void	exit_with_success(t_meta *meta, t_error error_code)
+void	exit_ko(t_meta *meta)
 {
-	if (error_code == SUCCESS)
-	{
+	if (meta->head_a)
 		free_linked_list(&meta->head_a);
-		free(meta);
-		exit (EXIT_SUCCESS);
-	}
-	else if (error_code == SORTED)
-	{
-		free_linked_list(&meta->head_a);
-		free(meta);
-		exit (EXIT_SUCCESS);
-	}
+	if (meta->head_b)
+		free_linked_list(&meta->head_b);
+	free(meta);
+	ft_putstr_fd("KO\n", STDERR_FILENO);
+	exit (EXIT_FAILURE);
+}
+
+void	free_memory(t_meta *meta)
+{
+	free_linked_list(&meta->head_a);
+	free(meta);
 }

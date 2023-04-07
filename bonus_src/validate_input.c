@@ -6,11 +6,11 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:17:31 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/04/07 17:47:41 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/07 18:10:07 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "checker.h"
 
 int	check_alhpabetical_input(char **argv, int i, int k)
 {

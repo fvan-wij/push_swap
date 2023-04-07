@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   operation_swap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 18:10:31 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/04/07 18:02:17 by fvan-wij         ###   ########.fr       */
+/*   Created: 2023/04/07 13:34:02 by fvan-wij          #+#    #+#             */
+/*   Updated: 2023/04/07 14:21:10 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	main(int argc, char **argv)
+void	swap_stack_a(t_node *head)
 {
-	t_meta	*meta;
+	int	temp;
 
-	meta = NULL;
-	if (input_is_invalid(argv) || argc < 2)
-		exit_with_error_code(meta, INVALID_INPUT);
-	meta = input_to_stack(meta, argc, argv);
-	if (is_sorted(meta->head_a))
-		exit_with_success(meta, SORTED);
-	if (meta->elements_a <= 5)
-		sort_small_stack(meta);
-	else
-		radix_sort(meta);
-	return (exit_with_success(meta, SUCCESS), EXIT_SUCCESS);
+	temp = 0;
+	if (head && head->next)
+	{
+		temp = head->n;
+		head->n = head->next->n;
+		head->next->n = temp;
+		ft_printf("sa\n");
+	}
+}
+
+void	swap_stack_b(t_node *head)
+{
+	int	temp;
+
+	if (head->next->n && head->n)
+	{
+		temp = head->n;
+		head->n = head->next->n;
+		head->next->n = temp;
+		ft_printf("sb\n");
+	}
 }

@@ -6,35 +6,42 @@
 #    By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 13:03:08 by fvan-wij          #+#    #+#              #
-#    Updated: 2023/04/05 18:29:06 by fvan-wij         ###   ########.fr        #
+#    Updated: 2023/04/07 17:45:39 by fvan-wij         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= push_swap
-FLAGS		:= -g -Wall -Wextra # -Werror
-LIBFT		:= ./libft/libft.a
-HEADERS		:= -I ./includes -I /include -I ./libft
+NAME		:=	push_swap
+FLAGS		:= 	-g -Wall -Wextra -Werror
+LIBFT		:= 	./libft/libft.a
+HEADERS		:= 	-I ./includes -I /include -I ./libft
 SRCS		:= 	main.c \
-				memory_management.c \
-				sorting_operations.c \
-				operations_combinations.c \
-				rudimentary_sort.c \
+				parse_input.c \
+				parse_atoi_overflow_protection.c \
+				operation_push.c \
+				operation_rev_rotate.c \
+				operation_rotate.c \
+				operation_swap.c \
+				loop_push_index.c \
+				loop_push_target.c \
+				loop_rotate.c \
 				sort_small_stack.c \
+				sort_radix.c \
 				validate_input.c \
-				radix_sort.c \
-				ft_atoi_overflow.c \
-				utilities.c \
+				utilities_print.c \
+				memory_management.c \
+				
 
-SRCDIR 		:= ./src
-OBJDIR 		:= ./obj
-OBJS		:= $(addprefix $(OBJDIR)/,$(SRCS:.c=.o))
-SRCS		:= $(addprefix $(SRCDIR)/,$(SRCS))
-DEBUG		:= -fsanitize=address
-# **************************************************************************** #
+SRCS_BONUS	:= 	main.c \
+				push.c \
+				rev_rotate.c \
+				rotate.c \
+				swap.c \
 
-# ifdef DEBUG
-# 		FLAGS += -g -fsanitize=address
-# endif
+SRCDIR 		:= 	./src
+OBJDIR 		:= 	./obj
+OBJS		:= 	$(addprefix $(OBJDIR)/,$(SRCS:.c=.o))
+SRCS		:= 	$(addprefix $(SRCDIR)/,$(SRCS))
+DEBUG		:= 	-fsanitize=address
 
 all: $(NAME)
 
