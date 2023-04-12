@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation_rev_rotate.c                             :+:      :+:    :+:   */
+/*   rev_rotate_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/07 13:32:45 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/04/12 18:48:11 by fvan-wij         ###   ########.fr       */
+/*   Created: 2023/04/07 11:35:15 by fvan-wij          #+#    #+#             */
+/*   Updated: 2023/04/12 18:45:18 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/checker_bonus.h"
 
 void	rev_rotate_stack_a(t_node **head)
 {
@@ -30,7 +30,6 @@ void	rev_rotate_stack_a(t_node **head)
 	(*head)->previous = current;
 	current->n = temp;
 	*head = current;
-	ft_printf("rra\n");
 }
 
 void	rev_rotate_stack_b(t_node **head)
@@ -51,5 +50,10 @@ void	rev_rotate_stack_b(t_node **head)
 	(*head)->previous = current;
 	current->n = temp;
 	*head = current;
-	ft_printf("rrb\n");
+}
+
+void	rev_rotate_a_and_b(t_node **head_a, t_node **head_b)
+{
+	rev_rotate_stack_a(head_a);
+	rev_rotate_stack_b(head_b);
 }

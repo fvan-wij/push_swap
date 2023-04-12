@@ -6,11 +6,11 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 13:29:05 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/04/07 14:15:49 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:48:11 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
 void	rotate_loop_and_push_to_a(int target, t_meta *meta)
 {

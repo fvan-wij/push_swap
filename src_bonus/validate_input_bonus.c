@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_input.c                                   :+:      :+:    :+:   */
+/*   validate_input_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:17:31 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/04/12 18:48:11 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:45:26 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/checker_bonus.h"
 
 int	check_alhpabetical_input(char **argv, int i, int k)
 {
@@ -56,7 +56,7 @@ int	input_is_invalid(char **argv)
 	int	k;
 
 	i = 1;
-	j = 2;
+	j = 1;
 	k = 0;
 	while (argv[i])
 	{

@@ -6,11 +6,11 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:10:31 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/04/12 15:12:27 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:46:51 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
 int	main(int argc, char **argv)
 {

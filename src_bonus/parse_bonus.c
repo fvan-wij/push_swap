@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_input.c                                      :+:      :+:    :+:   */
+/*   parse_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/07 13:37:16 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/04/12 18:48:11 by fvan-wij         ###   ########.fr       */
+/*   Created: 2023/04/12 16:36:33 by fvan-wij          #+#    #+#             */
+/*   Updated: 2023/04/12 18:45:10 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/checker_bonus.h"
 
 int	append_node(t_node **stack, int n)
 {
@@ -76,4 +76,19 @@ t_meta	*input_to_stack(t_meta *meta, int argc, char **argv)
 		i++;
 	}
 	return (meta);
+}
+
+int	check_input(char *line)
+{
+	int	i;
+
+	i = 0;
+	while (line[i] && line[i] != '\n')
+	{
+		if (line[i] != 'p' && line[i] != 'a' && line[i] != 'b'
+			&& line[i] != 'r' && line[i] != 's')
+			return (-1);
+		i++;
+	}
+	return (1);
 }

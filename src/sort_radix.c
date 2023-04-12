@@ -6,11 +6,11 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 09:25:34 by flip              #+#    #+#             */
-/*   Updated: 2023/04/07 14:24:12 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:48:11 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
 void	sort_index(t_meta *meta)
 {

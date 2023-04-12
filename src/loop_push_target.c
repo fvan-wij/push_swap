@@ -6,11 +6,11 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 20:12:46 by flip              #+#    #+#             */
-/*   Updated: 2023/04/07 14:10:05 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:48:11 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
 void	push_target_to_a(t_meta *meta, int target)
 {

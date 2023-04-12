@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_atoi_overflow_protection.c                   :+:      :+:    :+:   */
+/*   ft_atoi_overflow_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 15:29:45 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/04/12 18:48:11 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:44:56 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/checker_bonus.h"
 
 static int	skip_whitespace(int i, char *int_str)
 {

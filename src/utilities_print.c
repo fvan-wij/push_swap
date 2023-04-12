@@ -6,11 +6,11 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:49:10 by flip              #+#    #+#             */
-/*   Updated: 2023/04/12 15:41:54 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:48:11 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
 size_t	ft_bitlen(size_t n)
 {
