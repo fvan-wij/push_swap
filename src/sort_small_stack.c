@@ -6,7 +6,7 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:15:19 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/04/07 14:26:13 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/12 15:38:32 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ void	sort_stack_of_four_or_five(t_meta *meta)
 		push_index_to_b(meta, i);
 		i++;
 	}
-	sort_stack_of_three(meta);
+	if (!is_sorted(meta->head_a))
+		sort_stack_of_three(meta);
 	while (meta->elements_b != 0)
 	{
 		while (meta->head_b)

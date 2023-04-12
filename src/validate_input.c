@@ -6,7 +6,7 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:17:31 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/04/07 17:47:41 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/12 15:02:33 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,19 @@ int	check_duplicates(char **argv, int i, int j)
 	return (0);
 }
 
+int	input_is_empty(char **argv, int i, int k)
+{	
+	if (argv[i][0] == '\0')
+		return (1);
+	while (argv[i][k])
+	{		
+		if (argv[i][k] != ' ')
+			return (0);
+		k++;
+	}
+	return (1);
+}
+
 int	input_is_invalid(char **argv)
 {
 	int	i;
@@ -49,6 +62,8 @@ int	input_is_invalid(char **argv)
 	{
 		j = 1;
 		k = 0;
+		if (input_is_empty(argv, i, k))
+			return (1);
 		if (check_duplicates(argv, i, j))
 			return (1);
 		if (check_alhpabetical_input(argv, i, k))
