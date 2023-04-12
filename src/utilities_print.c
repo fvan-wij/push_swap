@@ -6,7 +6,7 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:49:10 by flip              #+#    #+#             */
-/*   Updated: 2023/04/12 15:27:20 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/12 15:41:54 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ void	print_stack(t_meta *meta, t_node *head, char *stack)
 	}
 	while (current != NULL)
 	{
-		ft_printf("Number in node[%d] is %d, index is: %d\n", i, current->n, current->index);
+		ft_printf("Number in node[%d] is %d, index is: %d\n",
+			i, current->n, current->index);
 		current = current->next;
 		i++;
 	}
