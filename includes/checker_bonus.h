@@ -6,7 +6,7 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 17:53:25 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/04/12 18:39:54 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:20:21 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,23 +58,23 @@ typedef struct s_meta
 //===================Operations=====================
 
 //		SA/SB/SS
-void	swap_stack_a(t_node *head);
-void	swap_stack_b(t_node *head);
-void	swap_a_and_b(t_node *head_a, t_node *head_b);
+void	swap_stack_a(t_meta *meta, t_node *head);
+void	swap_stack_b(t_meta *meta, t_node *head);
+void	swap_a_and_b(t_meta *meta, t_node *head_a, t_node *head_b);
 
 //		PA/PB
 void	push_to_a(t_meta *meta, t_node **source, t_node **destination);
 void	push_to_b(t_meta *meta, t_node **source, t_node **destination);
 
 // 		RA/RB/RR
-void	rotate_stack_a(t_node *head);
-void	rotate_stack_b(t_node *head);
-void	rotate_a_and_b(t_node *head_a, t_node *head_b);
+void	rotate_stack_a(t_meta *meta, t_node *head);
+void	rotate_stack_b(t_meta *meta, t_node *head);
+void	rotate_a_and_b(t_meta *meta, t_node *head_a, t_node *head_b);
 
 // 		RRA/RRB/RRR
-void	rev_rotate_stack_a(t_node **head);
-void	rev_rotate_stack_b(t_node **head);
-void	rev_rotate_a_and_b(t_node **head_a, t_node **head_b);
+void	rev_rotate_stack_a(t_meta *meta, t_node **head);
+void	rev_rotate_stack_b(t_meta *meta, t_node **head);
+void	rev_rotate_a_and_b(t_meta *meta, t_node **head_a, t_node **head_b);
 
 //===================Error Handling=================
 
@@ -92,6 +92,7 @@ void	exit_with_error_code(t_meta *meta, t_error error_code);
 void	exit_with_success(t_meta *meta, t_error error_code);
 void	exit_ko(t_meta *meta);
 void	free_memory(t_meta *meta);
+void	exit_due_operation_failure(t_meta *meta);
 
 //===================Read instructions==============
 void	read_instructions(t_meta *meta);

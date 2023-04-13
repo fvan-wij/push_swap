@@ -6,13 +6,13 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 11:34:56 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/04/12 18:45:23 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:19:24 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker_bonus.h"
 
-void	swap_stack_a(t_node *head)
+void	swap_stack_a(t_meta *meta, t_node *head)
 {
 	int	temp;
 
@@ -23,9 +23,11 @@ void	swap_stack_a(t_node *head)
 		head->n = head->next->n;
 		head->next->n = temp;
 	}
+	else
+		exit_due_operation_failure(meta);
 }
 
-void	swap_stack_b(t_node *head)
+void	swap_stack_b(t_meta *meta, t_node *head)
 {
 	int	temp;
 
@@ -35,10 +37,12 @@ void	swap_stack_b(t_node *head)
 		head->n = head->next->n;
 		head->next->n = temp;
 	}
+	else
+		exit_due_operation_failure(meta);
 }
 
-void	swap_a_and_b(t_node *head_a, t_node *head_b)
+void	swap_a_and_b(t_meta *meta, t_node *head_a, t_node *head_b)
 {
-	swap_stack_a(head_a);
-	swap_stack_b(head_b);
+	swap_stack_a(meta, head_a);
+	swap_stack_b(meta, head_b);
 }

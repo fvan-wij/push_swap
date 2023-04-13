@@ -6,16 +6,22 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 18:10:31 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/04/12 18:46:51 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:54:40 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+void	f()
+{
+	system("Leaks push_swap");
+}
+
 int	main(int argc, char **argv)
 {
 	t_meta	*meta;
 
+	// atexit(f);
 	meta = NULL;
 	if (argc < 2)
 		exit(EXIT_FAILURE);

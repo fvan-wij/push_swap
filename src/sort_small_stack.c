@@ -6,7 +6,7 @@
 /*   By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:15:19 by fvan-wij          #+#    #+#             */
-/*   Updated: 2023/04/12 18:48:11 by fvan-wij         ###   ########.fr       */
+/*   Updated: 2023/04/13 12:07:50 by fvan-wij         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,25 @@
 
 void	sort_stack_of_three(t_meta *meta)
 {
-	int	n1;
-	int	n2;
-	int	n3;
+	const int	n1 = meta->head_a->index;
+	const int	n2 = meta->head_a->next->index;
+	const int	n3 = meta->head_a->next->next->index;
 
-	n1 = meta->head_a->index;
-	n2 = meta->head_a->next->index;
-	n3 = meta->head_a->next->next->index;
 	if (n1 > n2 && n2 > n3 && n3 < n1)
 	{
-		rotate_stack_a(meta->head_a);
-		swap_stack_a(meta->head_a);
+		rotate_stack_a(meta, meta->head_a);
+		swap_stack_a(meta, meta->head_a);
 	}
 	else if (n1 > n2 && n2 < n3 && n3 < n1)
-		rotate_stack_a(meta->head_a);
+		rotate_stack_a(meta, meta->head_a);
 	else if (n1 > n2 && n2 < n3 && n3 > n1)
-		swap_stack_a(meta->head_a);
+		swap_stack_a(meta, meta->head_a);
 	else if (n1 < n2 && n2 > n3 && n3 < n1)
-		rev_rotate_stack_a(&meta->head_a);
+		rev_rotate_stack_a(meta, &meta->head_a);
 	else
 	{
-		rev_rotate_stack_a(&meta->head_a);
-		swap_stack_a(meta->head_a);
+		rev_rotate_stack_a(meta, &meta->head_a);
+		swap_stack_a(meta, meta->head_a);
 	}
 }
 
@@ -56,7 +53,7 @@ void	sort_stack_of_four_or_five(t_meta *meta)
 		while (meta->head_b)
 			push_to_a(meta, &meta->head_b, &meta->head_a);
 		if (!is_sorted(meta->head_a))
-			swap_stack_a(meta->head_a);
+			swap_stack_a(meta, meta->head_a);
 	}
 }
 
@@ -64,7 +61,7 @@ void	sort_small_stack(t_meta *meta)
 {
 	sort_index(meta);
 	if (meta->elements_a == 2 && !is_sorted(meta->head_a))
-		rotate_stack_a(meta->head_a);
+		rotate_stack_a(meta, meta->head_a);
 	else if (meta->elements_a == 3 && !is_sorted(meta->head_a))
 		sort_stack_of_three(meta);
 	else if ((meta->elements_a == 5 || meta->elements_a == 4)

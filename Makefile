@@ -6,7 +6,7 @@
 #    By: fvan-wij <fvan-wij@student.codam.nl>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/16 13:03:08 by fvan-wij          #+#    #+#              #
-#    Updated: 2023/04/12 18:50:17 by fvan-wij         ###   ########.fr        #
+#    Updated: 2023/04/13 16:14:07 by fvan-wij         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SRCS_BONUS	:= 	main_bonus.c \
 				read_instructions_bonus.c \
 				swap_bonus.c \
 				validate_input_bonus.c \
+				exit_bonus.c \
 
 SRCDIR 		:= 	./src
 OBJDIR 		:= 	./obj
